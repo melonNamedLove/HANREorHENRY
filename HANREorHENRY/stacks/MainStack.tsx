@@ -26,7 +26,7 @@ export default () => {
         component={Tabs}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name={"CreatePost"} component={CreatePost} />
+      <Stack.Screen name={"CreatePost"} component={CreatePost} options={{headerTitle:"LG VELVET"}}/>
     </Stack.Navigator>
   );
 };

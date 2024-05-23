@@ -6,13 +6,12 @@ import home from "./screens/home";
 import detail from "./screens/profile/profile-screen";
 import signinScreen from "./screens/signin-screen";
 import signupScreen from "./screens/signup-screen";
-
+import { auth } from "./firebaseConfig";
 import { useEffect, useState } from "react";
 import AuthStack from "./stacks/AuthStack";
 import MainStack from "./stacks/MainStack";
 import * as Firebase from "firebase/auth";
 import LoadingScreen from "./screens/loading-screen";
-import { auth } from "./firebaseConfig";
 
 const Stack = createStackNavigator();
 

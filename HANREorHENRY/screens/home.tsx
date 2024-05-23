@@ -12,7 +12,6 @@ import {
   View,
 } from "react-native";
 import * as Firebase from "firebase/auth"; //cheatsheet
-import { auth } from "../firebaseConfig";
 import styled from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 import { MainStackScreenList } from "../stacks/MainStack";
