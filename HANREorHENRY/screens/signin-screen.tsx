@@ -63,7 +63,7 @@ const Footer = styled(View)`
   margin-top: 15px;
 `;
 const SigninButton = styled(TouchableOpacity)`
-  background-color: #4ba5ff;
+  background-color: #57BAA8;
   padding: 10px;
   align-items: center;
 `;
@@ -77,7 +77,7 @@ const CreationGuide = styled(Text)`
   text-align: center;
 `;
 const CreateAccount = styled(Text)`
-  color: #4ba5ff;
+  color: #57BAA8;
   text-decoration: underline;
   text-align: center;
   margin-bottom: 10px;
@@ -88,8 +88,8 @@ const ErrorMessage = styled(Text)`
   font-size: 14px;
 `;
 
-const BGImgDir = require("../assets/instaDaelim_background.jpg");
-const LogoImgDir = require("../assets/instaDaelim_title.png");
+const BGImgDir = require("../assets/henry_background.png");
+const LogoImgDir = require("../assets/henry_title.png");
 
 //loading state
 
@@ -174,7 +174,7 @@ export default () => {
     <Container source={BGImgDir}>
       <SignBox>
         <LogoImg source={LogoImgDir} resizeMode="contain" />
-        <Title>Welcome my instadaelim app!!</Title>
+        <Title>Welcome to Henry</Title>
 
         <InputField>
           <UserID

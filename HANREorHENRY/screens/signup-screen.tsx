@@ -64,7 +64,7 @@ const Footer = styled(View)`
   margin-top: 15px;
 `;
 const SignupButton = styled(TouchableOpacity)`
-  background-color: #4ba5ff;
+  background-color: #57BAA8;
   padding: 10px;
   align-items: center;
 `;
@@ -76,8 +76,8 @@ const ErrorMessage = styled(Text)`
   color: #da4f4f;
   font-size: 10px;
 `;
-const BGImgDir = require("../assets/instaDaelim_background.jpg");
-const LogoImgDir = require("../assets/instaDaelim_title.png");
+const BGImgDir = require("../assets/henry_background.png");
+const LogoImgDir = require("../assets/henry_title.png");
 
 export default () => {
   //function
