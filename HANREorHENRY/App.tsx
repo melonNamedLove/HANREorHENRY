@@ -60,8 +60,7 @@ export default function App() {
     //MainStack :로그인 yes>이동할스크린 모음
     //MainStack :로그인 no>이동할스크린 모음{/*삼항도 중첩 가능*/}
     <NavigationContainer>
-      <AuthStack />
-      {/* {loading ? LoadingProcess : AuthProcess} */}
+      {loading ? LoadingProcess : AuthProcess}
     </NavigationContainer>
   );
 }
