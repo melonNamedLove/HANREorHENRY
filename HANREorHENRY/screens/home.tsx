@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
+  Alert,
   Image,
   ScrollView,
   Text,
@@ -13,7 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { MainStackScreenList } from "../stacks/MainStack";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
-import models from "../assets/links";
+import models from "../assets/links"; // 모델 데이터가 있는 파일을 불러옵니다.
 
 // Styled Components
 const SafeContainer = styled(SafeAreaView)`
@@ -35,23 +36,24 @@ const AddButton = styled(TouchableOpacity)``;
 const ScrollContainer = styled(ScrollView)`
   background-color: #d9d9d9;
 `;
-const PhoneItem = styled(View)`
+const PhoneItem = styled(TouchableOpacity)`
   width: 90%;
   height: 250px;
   margin-bottom: 10px;
-  background-color: darkblue;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
 `;
 
 // Main Component
 const App: React.FC = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<MainStackScreenList>>();
+  const navigation = useNavigation<NativeStackNavigationProp<MainStackScreenList>>();
 
   const goToCreatePost = () => {
-    navigation.navigate("CreatePost");
+    Alert.alert("version 2에 업데이트 됩니다.");
   };
 
-  const [manufacturer, setManufacturer] = useState<string | undefined>(undefined);
+  const [manufacturer, setManufacturer] = useState<string>("LG");
   const [model, setModel] = useState<string | undefined>(undefined);
 
   const renderModelPicker = () => {
@@ -61,6 +63,10 @@ const App: React.FC = () => {
     return models[manufacturer].map((modelItem) => (
       <Picker.Item key={modelItem.url} label={modelItem.label} value={modelItem.url} />
     ));
+  };
+
+  const handlePhoneItemPress = (device: { name: string; imgURL: string; model_no: string; }) => {
+    navigation.navigate("DeviceDetail", { device });
   };
 
   return (
@@ -84,13 +90,10 @@ const App: React.FC = () => {
           <Picker.Item label="애플" value="Apple" />
           <Picker.Item label="삼성" value="Samsung" />
         </Picker>
-        <Text>모델명</Text>
-        <Picker selectedValue={model} onValueChange={(itemValue) => setModel(itemValue)}>
-          {renderModelPicker()}
-        </Picker>
-        {manufacturer && models[manufacturer].map((modelItem, index) => (
-          <PhoneItem key={index}>
-            <Image source={{ uri: modelItem.url }} style={{ width: '100%', height: '100%' }} />
+        {manufacturer && models[manufacturer] && models[manufacturer].map((modelItem, index) => (
+          <PhoneItem key={index} onPress={() => handlePhoneItemPress({ name: modelItem.label,imgURL:modelItem.url, model_no: modelItem.model })}>
+            <Image source={{ uri: modelItem.url }} style={{ width: '80%', height: '80%', resizeMode: 'contain' }} />
+            <Text>{modelItem.label}</Text>
           </PhoneItem>
         ))}
       </ScrollContainer>
